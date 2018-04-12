@@ -8,11 +8,11 @@
 ```javascript
 var zipFolder = require('zip-folder');
 
-zipFolder('/path/to/the/folder', '/path/to/archive.zip', function(err) {
+zipFolder('/path/to/the/folder', '/path/to/archive.zip', function(err, size) {
 	if(err) {
 		console.log('oh no!', err);
 	} else {
-		console.log('EXCELLENT');
+		console.log('Done! Filesize:', size);
 	}
 });
 ```
@@ -20,3 +20,7 @@ zipFolder('/path/to/the/folder', '/path/to/archive.zip', function(err) {
 ## Tests
 
 Tests are in `tests.js` and built with nodeunit. Run `npm test` to run the tests.
+
+## Original author
+
+[github.com/sole/node-zip-folder](https://github.com/sole/node-zip-folder)

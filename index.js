@@ -6,7 +6,7 @@ function zipFolder(srcFolder, zipFilePath, callback) {
 	var zipArchive = archiver('zip');
 
 	output.on('close', function() {
-		callback();
+		callback(null, zipArchive.pointer()); // sends back filesize in byte
 	});
 
 	zipArchive.pipe(output);
@@ -17,7 +17,7 @@ function zipFolder(srcFolder, zipFilePath, callback) {
 
 	zipArchive.finalize(function(err, bytes) {
 		if(err) {
-			callback(err);
+			callback(err, null);
 		}
 	});
 }
